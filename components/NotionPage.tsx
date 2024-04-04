@@ -42,6 +42,7 @@ const Code = dynamic(() =>
       import('prismjs/components/prism-c.js'),
       import('prismjs/components/prism-cpp.js'),
       import('prismjs/components/prism-csharp.js'),
+      import('prismjs/components/prism-cmake.js'),
       import('prismjs/components/prism-docker.js'),
       import('prismjs/components/prism-java.js'),
       import('prismjs/components/prism-js-templates.js'),
@@ -250,6 +251,9 @@ export const NotionPage: React.FC<types.PageProps> = ({
         }
         else if (recordMap.block[key].value.properties.language[0][0] === 'F#') {
           recordMap.block[key].value.properties.language[0][0] = 'Fsharp'
+        }
+        else if (recordMap.block[key].value.properties.language[0][0] === 'Makefile') {
+          recordMap.block[key].value.properties.language[0][0] = 'CMake'
         }
       } catch (_){/**/}
     })
